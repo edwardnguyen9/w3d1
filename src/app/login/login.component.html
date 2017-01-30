@@ -1,17 +1,15 @@
 <div>
-  <form method="POST">
-    <table>
-      <tr>
-        <td>Username:</td>
-        <td><input type="text" required/></td>
-      </tr>
-      <tr>
-        <td> Password:</td>
-        <td><input type="password" required/></td>
-      </tr>
-      <tr>
-        <td><input type="submit" value="Log In" /></td>
-      </tr>
-    </table>
-  </form>
+  <table>
+    <tr>
+      <td>Username:</td>
+      <td><input type="text" required [(ngModel)]="username" /></td>
+    </tr>
+    <tr>
+      <td> Password:</td>
+      <td><input type="password" required [(ngModel)]="password" /></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Log In" (click)="logIn()" /></td>
+    </tr>
+  </table>
 </div>

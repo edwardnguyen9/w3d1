@@ -1,23 +1,23 @@
 <div>
-  <form method="POST">
-    <table>
-      <tr>
-        <td>Username:</td>
-        <td><input type="text" required/></td>
-      </tr>
-      <tr>
-        <td>Password:</td>
-        <td><input type="password" required/></td>
-      </tr>
-      <tr>
-        <td>Retype password:</td>
-        <td><input type="password" required/></td>
-      </tr>
-      <tr>
-        <td>Email address:</td>
-        <td><input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]" /></td>
-      </tr>
-      <tr><td><input type="submit" value="Register"/></td></tr>
-    </table>
-  </form>
+  <table>
+    <tr>
+      <td>Username:</td>
+      <td><input type="text" [(ngModel)]="username" required/></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><input type="password" [(ngModel)]="password1" required/></td>
+    </tr>
+    <tr>
+      <td>Retype password:</td>
+      <td><input type="password" [(ngModel)]="password2" required/></td>
+    </tr>
+    <tr>
+      <td>Email address:</td>
+      <td><input type="email" [(ngModel)]="email" required/></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Register" (click)="register()" /></td>
+    </tr>
+  </table>
 </div>
