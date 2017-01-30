@@ -1,3 +1,4 @@
+import { MediaService } from './services/media.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +10,7 @@ import { FrontComponent } from './front/front.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routeConfig = [
   {
@@ -24,10 +26,10 @@ const routeConfig = [
     path: 'register',
     component: RegisterComponent
   },
-  /*{
+  {
     path: 'logout',
     component: LogoutComponent
-  },*/
+  },
   {
     path: 'front',
     component: FrontComponent
@@ -40,7 +42,8 @@ const routeConfig = [
     FrontComponent,
     TopBarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,9 @@ const routeConfig = [
     HttpModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],
+  providers: [
+    MediaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
