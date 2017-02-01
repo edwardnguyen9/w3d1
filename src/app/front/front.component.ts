@@ -10,6 +10,7 @@ export class FrontComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(JSON.parse(localStorage.getItem('user')));
   }
 
 }

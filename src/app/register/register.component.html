@@ -1,23 +1,17 @@
-<div>
-  <table>
-    <tr>
-      <td>Username:</td>
-      <td><input type="text" [(ngModel)]="username" required/></td>
-    </tr>
-    <tr>
-      <td>Password:</td>
-      <td><input type="password" [(ngModel)]="password1" required/></td>
-    </tr>
-    <tr>
-      <td>Retype password:</td>
-      <td><input type="password" [(ngModel)]="password2" required/></td>
-    </tr>
-    <tr>
-      <td>Email address:</td>
-      <td><input type="email" [(ngModel)]="email" required/></td>
-    </tr>
-    <tr>
-      <td><input type="submit" value="Register" (click)="register()" /></td>
-    </tr>
-  </table>
-</div>
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)" >
+  <p>
+    <label>Username:</label>
+    <input type="text" name="username" ngModel required/>
+  </p>
+  <p>
+    <label>Password:</label>
+    <input type="password" name="password" ngModel required/>
+  </p>
+  <p>
+    <label>Email:</label>
+    <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ngModel required/>
+  </p>
+  <p>
+    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+  </p>
+</form>

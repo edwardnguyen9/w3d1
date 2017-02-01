@@ -1,4 +1,5 @@
-import { MediaService } from './../services/media.service';
+import { Router } from '@angular/router';
+import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,18 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   private username = '';
   private password = '';
-  constructor(private mediaService: MediaService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('user') !== null) {
+      this.loginService.setUser(JSON.parse(localStorage.getItem('user')));
+      this.loginService.logged = true;
+      this.router.navigate(['front']);
+    } else if (this.loginService.getUser().password !== undefined) {
+      this.loginService.logIn();
+    }
   }
 
-  logIn = () => {
-    const user = {
-      username: this.username,
-      password: this.password
-    };
-    this.mediaService.setUser(user);
-    this.mediaService.logIn();
+  logIn = (user: any) => {
+    this.loginService.setUser(user);
+    this.loginService.logIn();
   }
 
 }

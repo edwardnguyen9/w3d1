@@ -1,15 +1,16 @@
-<div>
-  <table>
-    <tr>
-      <td>Username:</td>
-      <td><input type="text" required [(ngModel)]="username" /></td>
-    </tr>
-    <tr>
-      <td> Password:</td>
-      <td><input type="password" required [(ngModel)]="password" /></td>
-    </tr>
-    <tr>
-      <td><input type="submit" value="Log In" (click)="logIn()" /></td>
-    </tr>
-  </table>
-</div>
+<h3>Login</h3>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+  <p>
+    <label>Username:</label>
+    <input type="text" name="username"
+           ngModel required>
+  </p>
+  <p>
+    <label>Password:</label>
+    <input type="password" name="password"
+           ngModel required>
+  </p>
+  <p>
+    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+  </p>
+</form>

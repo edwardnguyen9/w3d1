@@ -1,6 +1,7 @@
+import { LoginService } from './services/login.service';
 import { MediaService } from './services/media.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -11,6 +12,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UploadComponent } from './upload/upload.component';
 
 const routeConfig = [
   {
@@ -33,6 +35,10 @@ const routeConfig = [
   {
     path: 'front',
     component: FrontComponent
+  },
+  {
+    path: 'upload',
+    component: UploadComponent
   }
 ];
 
@@ -43,7 +49,8 @@ const routeConfig = [
     TopBarComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,8 @@ const routeConfig = [
     RouterModule.forRoot(routeConfig)
   ],
   providers: [
-    MediaService
+    MediaService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
