@@ -16,7 +16,7 @@ export class LoginService {
     return this.user;
   }
   logIn = () => {
-    return this.http.post(this.url + 'login/', this.user).subscribe(
+    return this.http.post(this.url + 'login', this.user).subscribe(
       (res) => {
         const data = res.json();
         this.user = data.user;

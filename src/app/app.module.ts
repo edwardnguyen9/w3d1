@@ -39,6 +39,10 @@ const routeConfig = [
   {
     path: 'upload',
     component: UploadComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
   }
 ];
 

@@ -13,7 +13,19 @@ export class UploadComponent implements OnInit {
   ngOnInit() {
   }
   upload = (evt, value) => {
-    this.mediaService.upload(evt.target[0], value);
+    const fileElement = evt.target.querySelector('input[type=file]');
+    const formData = new FormData();
+    formData.append('file', fileElement.files[0]);
+    formData.append('title', value.title);
+    formData.append('description', value.description);
+    return this.mediaService.upload(formData).subscribe(
+      (res) => {
+        console.log(res.json());
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
     // console.log(evt.target[0].files[0]);
     // console.log(value);
   }
